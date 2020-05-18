@@ -259,7 +259,7 @@ class XmlLineSerializer:
     def __init__(self, indent=0, tabwidth=2, width=48, ratio=0.5):
         self.tabwidth = tabwidth
         self.indent = indent
-        self.width = max(0, width - int(tabwidth * indent))
+        self.width = max(0, int(width) - int(tabwidth * indent))
         self.lwidth = int(self.width * ratio)
         self.rwidth = max(0, self.width - self.lwidth)
         self.clwidth = 0
