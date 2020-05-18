@@ -33,8 +33,8 @@ class StyleStack:
     column width for the current font from the printer profile.
     """
 
-    def __init__(self, profile):
-        self.profile = profile
+    def __init__(self):
+        #self.profile = profile
         self.stack = []
         self.defaults = {   # default style values
             'align': 'left',
@@ -128,9 +128,9 @@ class StyleStack:
     def get(self, style):
         value = self._get(style)
 
-        if style == 'width' and value == 'auto':
-            font = self._get('font')
-            return self.profile.get_columns(font)
+        #if style == 'width' and value == 'auto':
+        #    font = self._get('font')
+        #    return self.profile.get_columns(font)
 
         return value
 
@@ -552,7 +552,7 @@ class Layout(object):
         """Format the layout to print on the given printer driver.
         """
 
-        stylestack = StyleStack(printer.profile)
+        stylestack = StyleStack(printer)
         serializer = XmlSerializer(printer)
         root = self._root
 
