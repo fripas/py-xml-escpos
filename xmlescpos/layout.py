@@ -552,7 +552,7 @@ class Layout(object):
         """Format the layout to print on the given printer driver.
         """
 
-        stylestack = StyleStack(printer)
+        stylestack = StyleStack()
         serializer = XmlSerializer(printer)
         root = self._root
 
